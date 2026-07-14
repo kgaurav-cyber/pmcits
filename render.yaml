@@ -1,0 +1,62 @@
+services:
+  # Backend Node.js Service
+  - type: web
+    name: pmcits-backend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: FRONTEND_URL
+        value: https://pmcits-frontend.onrender.com
+      # Supabase Config
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      # JWT Config
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: TEMP_PASSWORD_EXPIRY_DAYS
+        value: 7
+      - key: MAX_FAILED_LOGIN_ATTEMPTS
+        value: 5
+      # Email Config
+      - key: EMAIL_PROVIDER
+        value: smtp
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 2525
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: EMAIL_FROM
+        value: noreply@pmcits.com
+      # External APIs
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OCR_API_KEY
+        sync: false
+
+  # Frontend Next.js Service
+  - type: web
+    name: pmcits-frontend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://pmcits-backend.onrender.com
+      - key: NEXT_PUBLIC_APP_NAME
+        value: "Police Medical Claims Intelligence & Transparency System"
+      - key: NEXT_PUBLIC_ENVIRONMENT
+        value: production

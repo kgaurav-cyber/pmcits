@@ -1,0 +1,22 @@
+{
+  "errors": [
+    {
+      "received": "Outpatient",
+      "code": "invalid_enum_value",
+      "options": [
+        "OPD",
+        "IPD"
+      ],
+      "path": [
+        "claim_type"
+      ],
+      "message": "Invalid enum value. Expected 'OPD' | 'IPD', received 'Outpatient'"
+    }
+  ],
+  "body": {
+    "patient_type": "Self",
+    "claim_type": "Outpatient",
+    "admission_date": "2023-10-01",
+    "discharge_date": "2023-10-05"
+  }
+}
