@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Police Medical Claims Intelligence & Transparency System Backend",
   "main": "dist/index.js",
+  {
+    "engines": {
+      "node": "22.x"
+    }
+  }
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
