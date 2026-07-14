@@ -48,7 +48,8 @@ app.use(cors({
   origin: [
     env.FRONTEND_URL,
     "https://pmcits-frontend.onrender.com",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://pmcits.kumardev.online"
   ],
   credentials: true
 }));
