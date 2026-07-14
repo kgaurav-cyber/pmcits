@@ -46,9 +46,9 @@ app.use(limiter);
 // Enable CORS and raw body JSON parsing
 app.use(cors({
   origin: [
-    process.env.FRONTEND_URL || "http://localhost:3000",
-    "https://pmcits.kumardev.online",
-    "https://pmcits-frontend.onrender.com"
+    env.FRONTEND_URL,
+    "https://pmcits-frontend.onrender.com",
+    "http://localhost:3000"
   ],
   credentials: true
 }));
