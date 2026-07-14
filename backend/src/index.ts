@@ -44,7 +44,14 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Enable CORS and raw body JSON parsing
-app.use(cors());
+app.use(cors({
+  origin: [
+    process.env.FRONTEND_URL || "http://localhost:3000",
+    "https://pmcits.kumardev.online",
+    "https://pmcits-frontend.onrender.com"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Log incoming API calls
